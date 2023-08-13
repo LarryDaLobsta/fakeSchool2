@@ -119,3 +119,20 @@ next thing would be is to fill out the read me on how to install this package
 -->push to beta branch first before anything else
 next would be completing the documentation and updating the structure
 and create a new branch with new updates and cleaned up file structure
+
+Aug 8th 2023
+Wokring on cleaning up the randomfile and the testing file associated with it. To ensure all smoke tester test work and Error messages
+are instructional to the user or programmer
+
+
+-> Notes
+	Started the process of adding doc strings to the randomFile.py and finished with the Institution function. May need to address check comment in the body of the function. 
+-> Goal 
+	Finish docstrings and clean up functions, then move on to beta testing phase.
+
+
+
+
+
+
+

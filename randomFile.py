@@ -8,6 +8,15 @@ import pandas as pd
 
 # generates random password for the student
 def password() -> str:
+    """Return a randomly generated string that represent a password that may contain letters, numbers, and symbols.
+    Args:
+        None
+
+    Returns:
+        password_final: Randomly generated password that is of length.
+    """
+
+
     lower = string.ascii_lowercase
     upper = string.ascii_uppercase
     num = string.digits
@@ -20,22 +29,49 @@ def password() -> str:
 
 
 def full_name() -> str:
+    
+    """Return a randomly generated first name and last name from the names library. Essentially a wrapper for the names.get_full_name()
+        function.
+    Args:
+        None
+
+    Returns:
+       name: Randomly generated full name that contains a first and last name.
+    """
+
+
+
+
     name = names.get_full_name()
     return name
 
 
 def institution(college_email: str) -> str:
+
+    """Based on the college email provided a college will be found if it matches one in the universities.csv.
+    Args:
+        college_email: str
+
+    Returns:
+       college_choice a string representation of the college based in the college_email provided
+    """
+
+
+
+
     college_choice: str
-    college2: str
-    school_list: Tuple[str, str]
+    school_list: list[Tuple[str, str]]
     # open the file
-    data = pd.read_csv("Institutions/us_universities.csv")
-    school_list = [tuple(row) for row in data.values]
+    data = pd.read_csv("../Institutions/us_universities.csv")
+    school_list = list(data.itertuples(index=False, name=None))
+    
+
 
     for x, y in school_list:
         if college_email in y:
             college_choice = x
             return college_choice
+    return "No School"
     
     """
     may need to add a statement to address the condition if the email
@@ -57,7 +93,7 @@ def stud_email(student_name: str) -> str:
     # may want to add if a student_name was not provided,
     # the ability to generate a full name
     # open the file
-    data = pd.read_csv("Institutions/us_universities.csv")
+    data = pd.read_csv("../Institutions/us_universities.csv")
     url_list = data['url'].tolist()
 
     for index, item in enumerate(url_list):

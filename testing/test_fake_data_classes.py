@@ -3,8 +3,10 @@ this will test the files that contain the classes for the fake data
 '''
 
 from mimetypes import init
-import pytest
+import sys
+sys.path.append("../")
 import randomFile as rf
+import pytest
 
 
 def capital_case(x):
