@@ -137,3 +137,8 @@ are instructional to the user or programmer
 
 August 12th 2023
 Cleaned up the instiution function that had an issue need to also add doc strings for it and continue to move down the list. Also testing may need to be changed to make sure errors are handled refer to pytest 30 min tutorial for how to get errors to pass the test.
+
+
+
+August 13th 2023
+Cleaned up some more functions after I finish the docstring I will need to go back and debug some of the functions, then test them out in a seperate file to make sure they do what they need to do and they work accordingly.

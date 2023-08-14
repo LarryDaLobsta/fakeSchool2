@@ -66,21 +66,27 @@ def institution(college_email: str) -> str:
     school_list = list(data.itertuples(index=False, name=None))
     
 
-
+    college_choice = "None"
     for x, y in school_list:
         if college_email in y:
             college_choice = x
             return college_choice
-    return "No School"
-    
-    """
-    may need to add a statement to address the condition if the email
-    does not exist
-    """
+    if college_choice == "None":
+        return "No School"
 
 
 # email format take url from file and strip to format
 def stud_email(student_name: str) -> str:
+
+    """Return a college email string that is formatted to include the student_name string argument.
+    Args:
+        student_name: str
+
+    Returns:
+       student_email string that includes the student name and university and dot extentsion.
+    """
+
+
     student_email: str
     url_list: List[str] = []
     extension_list: List[str] = []
@@ -117,6 +123,16 @@ def stud_email(student_name: str) -> str:
 
 
 def student_id_number() -> int:
+
+    """Randomly generate an integer that represents a student id number.
+    Args:
+        None
+
+    Returns:
+        student_number is returned and is a randomly generated integer
+    """
+
+
     student_number: int
 
     student_number = random.randint(100000, 999999)
@@ -124,8 +140,18 @@ def student_id_number() -> int:
 
 
 def student_status() -> str:
+    
+    """Randomly generates a student status based on thre credit_status dictionary.
+    Args:
+        None
+
+    Returns:
+        status is returned and randomly selected from the credit_status dictionary.
+    """
+
+
     status: str
-    credit_status: Dict[str] = {}
+    credit_status: Dict[str, int] = {}
 
     credit_status = {
         "Full time": 12,
@@ -139,24 +165,36 @@ def student_status() -> str:
 
 
 def student_credit_hours(credit_status: str) -> int:
-    credit_hours: int
+
+    """Randomly generates a student credit hour based on the credit_status string.
+    Args:
+        credit_status
+
+    Returns:
+        An integer that represents the credit status represented as the credit_status string.
+    """
+
+
     credit_status_list = ["Full time", "3/4 time", "Part time", "Less than half"]
     if credit_status not in credit_status_list:
-        raise ValueError("The credit status given is not an option listed")
-    # may need to add a case if a credit status is not correct
+        raise ValueError("The credit status given is not an option listed. Choose 'Full Time', '3/4 time', 'Part time', 'Less than half' ")
+
+
 
     match credit_status:
         case "Full time":
-            credit_hours = random.randint(12, 18)
+            return random.randint(12, 18)
         case "3/4 time":
-            credit_hours = random.randint(9, 11)
+            return random.randint(9, 11)
         case "Part time":
-            credit_hours = random.randint(6, 8)
+            return random.randint(6, 8)
         case "Less than half":
-            credit_hours = random.randint(1, 5)
-    return credit_hours
+            return random.randint(1, 5)
+        case _:
+            return 0
 
-
+    
+# left off here
 def student_gpa() -> int:
     gpa: int
     student_type: List[str]
@@ -198,7 +236,6 @@ def student_year() -> str:
     ]
     year_status = random.choice(year_choice)
     return year_status
-
 
 def credits_completed(degree_type: str) -> int:
     completed_credits: int
